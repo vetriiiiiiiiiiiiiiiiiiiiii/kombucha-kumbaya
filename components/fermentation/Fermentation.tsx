@@ -31,11 +31,28 @@ export function Fermentation() {
   const horizontal = desktop && !reduced;
 
   useIsomorphicLayoutEffect(() => {
-    if (!section.current || !horizontal) return;
+    if (!section.current || !track.current || !horizontal) return;
 
     const ctx = gsap.context(() => {
-      const panels = fermentStages.length + 1; // + the closing statement
-      const distance = (panels - 1) * 100;
+      /** How far the rail must travel, in pixels, to reach the last panel. */
+      const distance = () =>
+        Math.max((track.current?.scrollWidth ?? 0) - window.innerWidth, 0);
+
+      /**
+       * The section is made exactly as tall as the rail is wide, so one pixel
+       * of scroll moves the timeline one pixel sideways. A fixed svh height
+       * cannot do this: the ratio between a viewport width and a viewport
+       * height changes with every aspect ratio.
+       */
+      const sizeSection = () => {
+        if (section.current) {
+          section.current.style.height = `${distance() + window.innerHeight}px`;
+        }
+      };
+      sizeSection();
+
+      // One unit per stage, so the rail and the colour changes share a length.
+      const units = fermentStages.length;
 
       const tl = gsap.timeline({
         scrollTrigger: {
@@ -43,6 +60,8 @@ export function Fermentation() {
           start: 'top top',
           end: 'bottom bottom',
           scrub: 0.7,
+          invalidateOnRefresh: true,
+          onRefreshInit: sizeSection,
           onUpdate: (self) => {
             const p = self.progress;
             fizz.current = 0.3 + p * 2.6;
@@ -69,7 +88,14 @@ export function Fermentation() {
         },
       });
 
-      tl.to(track.current, { xPercent: -distance, ease: 'none' }, 0);
+      // Spans the whole timeline. Given a plain duration of 1 it would finish
+      // in the first fifth of the section and leave the rest scrolling empty.
+      tl.fromTo(
+        track.current,
+        { x: 0 },
+        { x: () => -distance(), ease: 'none', duration: units, invalidateOnRefresh: true },
+        0
+      );
 
       // the ground takes on the colour of whichever day is on screen
       fermentStages.forEach((stage, i) => {
@@ -81,13 +107,19 @@ export function Fermentation() {
       });
     }, section);
 
-    return () => ctx.revert();
+    return () => {
+      ctx.revert();
+      // The height is written directly, so it has to be taken back directly —
+      // otherwise it survives a switch to the vertical layout.
+      if (section.current) section.current.style.height = '';
+    };
   }, [horizontal]);
 
   return (
     <section
       ref={section}
       id="ferment"
+      // Height is measured from the rail once mounted; this is the pre-hydration fallback.
       className={horizontal ? 'relative h-[520svh]' : 'relative'}
       aria-label="Thirty days of patience"
     >
@@ -161,7 +193,7 @@ export function Fermentation() {
             ref={track}
             className={
               horizontal
-                ? 'flex h-full w-[600vw] will-change-transform'
+                ? 'flex h-full w-max will-change-transform'
                 : 'flex flex-col gap-16'
             }
           >
