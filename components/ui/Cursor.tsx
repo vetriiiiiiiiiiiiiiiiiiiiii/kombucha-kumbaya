@@ -48,11 +48,40 @@ export function Cursor() {
     let lastT = 0;
     let hovering = false;
 
+    /**
+     * show/hide are symmetric on purpose. An earlier version faded the cursor
+     * out on pointerleave without clearing the flag, so the guard in onMove
+     * could never restore it — one trip outside the window (a second monitor,
+     * the tab bar, devtools) or one setPointerCapture from the flavour rail
+     * hid the cursor permanently. With the native cursor also set to none,
+     * that left no pointer at all. Any pointer movement now heals it.
+     */
+    // Fading is done with a CSS transition on a directly written style rather
+    // than a tween: whether the visitor can see their own cursor must not
+    // depend on an animation ticker still running.
+    for (const el of [bottleEl, ringEl]) {
+      el.style.transition = 'opacity 0.28s ease';
+    }
+
+    const setOpacity = (v: string) => {
+      bottleEl.style.opacity = v;
+      ringEl.style.opacity = v;
+    };
+
+    const show = () => {
+      if (visible) return;
+      visible = true;
+      setOpacity('1');
+    };
+
+    const hide = () => {
+      if (!visible) return;
+      visible = false;
+      setOpacity('0');
+    };
+
     const onMove = (e: PointerEvent) => {
-      if (!visible) {
-        visible = true;
-        gsap.to([bottleEl, ringEl], { autoAlpha: 1, duration: 0.3 });
-      }
+      show();
 
       bx(e.clientX);
       by(e.clientY);
@@ -104,15 +133,22 @@ export function Cursor() {
       }
     };
 
-    const onLeave = () => gsap.to([bottleEl, ringEl], { autoAlpha: 0, duration: 0.25 });
     const onDown = () => gsap.to(ringEl, { scale: 0.84, duration: 0.2 });
     const onUp = () => gsap.to(ringEl, { scale: 1, duration: 0.35 });
+
+    // Only a genuine exit from the document counts as leaving. A pointerout
+    // with a relatedTarget is just the pointer crossing between elements.
+    const onOut = (e: PointerEvent) => {
+      if (!e.relatedTarget) hide();
+    };
 
     window.addEventListener('pointermove', onMove, { passive: true });
     window.addEventListener('pointerover', onOver, { passive: true });
     window.addEventListener('pointerdown', onDown, { passive: true });
     window.addEventListener('pointerup', onUp, { passive: true });
-    document.addEventListener('pointerleave', onLeave);
+    window.addEventListener('pointerout', onOut, { passive: true });
+    document.documentElement.addEventListener('pointerenter', show);
+    window.addEventListener('blur', hide);
 
     return () => {
       document.documentElement.style.cursor = '';
@@ -120,7 +156,9 @@ export function Cursor() {
       window.removeEventListener('pointerover', onOver);
       window.removeEventListener('pointerdown', onDown);
       window.removeEventListener('pointerup', onUp);
-      document.removeEventListener('pointerleave', onLeave);
+      window.removeEventListener('pointerout', onOut);
+      document.documentElement.removeEventListener('pointerenter', show);
+      window.removeEventListener('blur', hide);
     };
   }, [fine, reduced]);
 
