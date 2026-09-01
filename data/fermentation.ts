@@ -1,0 +1,55 @@
+import type { FermentStage } from '@/types';
+
+/** The thirty-day arc. Drives the pinned fermentation sequence. */
+export const fermentStages: FermentStage[] = [
+  {
+    id: 'tea',
+    day: 'DAY 01',
+    title: 'TEA',
+    caption: 'It starts as nothing but leaves and hot water.',
+    body: 'Whole leaf tea, steeped long and cooled slow. This is the only step that looks like a kitchen. Everything after this belongs to the culture.',
+    progress: 0,
+    colour: { accent: '#C9A96A', deep: '#1A1207' },
+    media: '/assets/texture/stage-tea.svg',
+  },
+  {
+    id: 'culture',
+    day: 'DAY 07',
+    title: 'CULTURE',
+    caption: 'A living thing goes in, and takes over.',
+    body: 'The culture settles across the surface and begins its work. From here we stop deciding things and start watching them.',
+    progress: 0.25,
+    colour: { accent: '#D7C08D', deep: '#1E1509' },
+    media: '/assets/texture/stage-culture.svg',
+  },
+  {
+    id: 'fermentation',
+    day: 'DAY 15',
+    title: 'FERMENTATION',
+    caption: 'Sweet turns to sour. Slowly.',
+    body: 'Halfway. The liquid darkens, the smell sharpens, the sugar falls away. Rushing this is the only way to ruin it.',
+    progress: 0.55,
+    colour: { accent: '#C0762A', deep: '#241505' },
+    media: '/assets/texture/stage-fermentation.svg',
+  },
+  {
+    id: 'flavour',
+    day: 'DAY 20+',
+    title: 'FLAVOUR',
+    caption: 'Fruit meets ferment.',
+    body: 'Real fruit goes in for the second ferment. The brew takes on colour, perfume and a second personality.',
+    progress: 0.78,
+    colour: { accent: '#F0A028', deep: '#2E1A05' },
+    media: '/assets/texture/stage-flavour.svg',
+  },
+  {
+    id: 'fizz',
+    day: 'DAY 30',
+    title: 'FIZZ',
+    caption: 'The bottle starts to talk back.',
+    body: 'Pressure builds in the glass on its own. No injection, no shortcut. Thirty days later, it hisses when you open it.',
+    progress: 1,
+    colour: { accent: '#E2A03F', deep: '#120C05' },
+    media: '/assets/texture/stage-fizz.svg',
+  },
+];

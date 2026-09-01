@@ -1,0 +1,136 @@
+import type { City } from '@/types';
+
+/**
+ * PLACEHOLDER STOCKISTS — realistic but fictional venues for the prototype.
+ * `x` / `y` are normalised coordinates on the interpretive India plate
+ * (viewBox 0 0 100 120) drawn in components/location/IndiaPlate.tsx.
+ */
+export const cities: City[] = [
+  {
+    id: 'chennai',
+    name: 'CHENNAI',
+    state: 'Tamil Nadu',
+    x: 44.5,
+    y: 88,
+    status: 'LIVE',
+    count: 38,
+    venues: [
+      { id: 'ch1', name: 'Backwater Coffee Room', type: 'CAFÉ', area: 'Alwarpet' },
+      { id: 'ch2', name: 'Marina Provisions', type: 'RETAIL', area: 'Besant Nagar' },
+      { id: 'ch3', name: 'Table No. 9', type: 'RESTAURANT', area: 'Nungambakkam' },
+      { id: 'ch4', name: 'The Brew Room', type: 'STUDIO', area: 'Kotturpuram' },
+      { id: 'ch5', name: 'Sunday Kitchen', type: 'RESTAURANT', area: 'Adyar' },
+    ],
+  },
+  {
+    id: 'bengaluru',
+    name: 'BENGALURU',
+    state: 'Karnataka',
+    x: 36,
+    y: 87,
+    status: 'LIVE',
+    count: 41,
+    venues: [
+      { id: 'bl1', name: 'Third Wave Indiranagar', type: 'CAFÉ', area: 'Indiranagar' },
+      { id: 'bl2', name: 'Koramangala Grocers', type: 'RETAIL', area: 'Koramangala' },
+      { id: 'bl3', name: 'Slow Service', type: 'RESTAURANT', area: 'Jayanagar' },
+      { id: 'bl4', name: 'Cubbon Counter', type: 'CAFÉ', area: 'Cubbon Park' },
+    ],
+  },
+  {
+    id: 'mumbai',
+    name: 'MUMBAI',
+    state: 'Maharashtra',
+    x: 19,
+    y: 63,
+    status: 'LIVE',
+    count: 27,
+    venues: [
+      { id: 'mb1', name: 'Bandra Bottle Shop', type: 'RETAIL', area: 'Bandra West' },
+      { id: 'mb2', name: 'Kala Ghoda Canteen', type: 'CAFÉ', area: 'Fort' },
+      { id: 'mb3', name: 'Room 4', type: 'RESTAURANT', area: 'Lower Parel' },
+    ],
+  },
+  {
+    id: 'hyderabad',
+    name: 'HYDERABAD',
+    state: 'Telangana',
+    x: 38,
+    y: 72,
+    status: 'LIVE',
+    count: 19,
+    venues: [
+      { id: 'hy1', name: 'Jubilee Provisions', type: 'RETAIL', area: 'Jubilee Hills' },
+      { id: 'hy2', name: 'Deccan Coffee Co.', type: 'CAFÉ', area: 'Banjara Hills' },
+    ],
+  },
+  {
+    id: 'kochi',
+    name: 'KOCHI',
+    state: 'Kerala',
+    x: 29,
+    y: 96.5,
+    status: 'LIVE',
+    count: 14,
+    venues: [
+      { id: 'kc1', name: 'Fort House Cafe', type: 'CAFÉ', area: 'Fort Kochi' },
+      { id: 'kc2', name: 'Backwater Stores', type: 'RETAIL', area: 'Mattancherry' },
+    ],
+  },
+  {
+    id: 'coimbatore',
+    name: 'COIMBATORE',
+    state: 'Tamil Nadu',
+    x: 33,
+    y: 92,
+    status: 'LIVE',
+    count: 11,
+    venues: [
+      { id: 'cb1', name: 'Mill Road Coffee', type: 'CAFÉ', area: 'RS Puram' },
+      { id: 'cb2', name: 'The Corner Store', type: 'RETAIL', area: 'Race Course' },
+    ],
+  },
+  {
+    id: 'goa',
+    name: 'GOA',
+    state: 'Goa',
+    x: 22,
+    y: 75,
+    status: 'LIVE',
+    count: 16,
+    venues: [
+      { id: 'go1', name: 'Assagao Bakehouse', type: 'CAFÉ', area: 'Assagao' },
+      { id: 'go2', name: 'Beach Road Provisions', type: 'RETAIL', area: 'Vagator' },
+    ],
+  },
+  {
+    id: 'pune',
+    name: 'PUNE',
+    state: 'Maharashtra',
+    x: 23,
+    y: 68,
+    status: 'SOON',
+    count: 0,
+    venues: [{ id: 'pn1', name: 'Opening this quarter', type: 'RETAIL', area: 'Koregaon Park' }],
+  },
+  {
+    id: 'delhi',
+    name: 'DELHI NCR',
+    state: 'Delhi',
+    x: 29.5,
+    y: 31,
+    status: 'SOON',
+    count: 0,
+    venues: [{ id: 'dl1', name: 'Opening this quarter', type: 'CAFÉ', area: 'Shahpur Jat' }],
+  },
+  {
+    id: 'kolkata',
+    name: 'KOLKATA',
+    state: 'West Bengal',
+    x: 65,
+    y: 54,
+    status: 'SOON',
+    count: 0,
+    venues: [{ id: 'kl1', name: 'Opening this quarter', type: 'RESTAURANT', area: 'Ballygunge' }],
+  },
+];

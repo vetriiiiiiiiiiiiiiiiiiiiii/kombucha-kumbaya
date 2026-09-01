@@ -1,0 +1,340 @@
+@import "tailwindcss";
+
+/* ============================================================
+   KUMBAYAH — DESIGN TOKENS
+   A warm, fermented, near-black system. Colour is rationed:
+   the page is dark and earthy; fruit tones only appear where
+   a flavour is genuinely present.
+   ============================================================ */
+
+@theme {
+  /* --- ground --- */
+  --color-void: #080604;
+  --color-ink: #0E0B07;
+  --color-soil: #16110A;
+  --color-bark: #241A0F;
+  --color-hairline: #3A2C1C;
+
+  /* --- fermentation --- */
+  --color-tea: #6B4420;
+  --color-amber: #C0762A;
+  --color-honey: #E2A03F;
+  --color-scoby: #E3D3B4;
+
+  /* --- paper --- */
+  --color-bone: #F3EDE1;
+  --color-ash: #A2968440;
+  --color-muted: #9C8E79;
+
+  /* --- fruit (accents only) --- */
+  --color-mango: #F0A028;
+  --color-lychee: #E9A8B6;
+  --color-berry: #A32F51;
+  --color-nannari: #B2643C;
+  --color-lime: #A9BE55;
+  --color-original: #CE8C3A;
+
+  /* --- type --- */
+  --font-display: var(--font-bricolage), "Helvetica Neue", sans-serif;
+  --font-sans: var(--font-inter-tight), system-ui, sans-serif;
+  --font-serif: var(--font-instrument), Georgia, serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, monospace;
+
+  /* --- motion --- */
+  --ease-out-soft: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out-soft: cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+/* ============================================================
+   BASE
+   ============================================================ */
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  html {
+    background: var(--color-void);
+  }
+
+  body {
+    background: var(--color-void);
+    color: var(--color-bone);
+    font-family: var(--font-sans);
+    font-synthesis-weight: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: clip;
+  }
+
+  ::selection {
+    background: var(--color-honey);
+    color: var(--color-ink);
+  }
+
+  /* Lenis */
+  html.lenis,
+  html.lenis body {
+    height: auto;
+  }
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+  .lenis.lenis-stopped {
+    overflow: clip;
+  }
+
+  ::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
+
+  img,
+  video {
+    max-width: 100%;
+  }
+
+  /* focus that respects the art direction but stays visible */
+  :focus-visible {
+    outline: 2px solid var(--color-honey);
+    outline-offset: 3px;
+  }
+}
+
+/* ============================================================
+   TYPOGRAPHY PRIMITIVES
+   ============================================================ */
+
+@layer components {
+  .display {
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    line-height: 0.86;
+    text-transform: uppercase;
+  }
+
+  .display-tight {
+    font-family: var(--font-display);
+    font-weight: 800;
+    letter-spacing: -0.055em;
+    line-height: 0.8;
+    text-transform: uppercase;
+  }
+
+  .serif-note {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    text-transform: none;
+  }
+
+  .label {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    font-weight: 400;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    line-height: 1;
+  }
+
+  .label-sm {
+    font-family: var(--font-mono);
+    font-size: 0.625rem;
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+    line-height: 1;
+  }
+
+  .body-lg {
+    font-size: clamp(1.05rem, 1.35vw, 1.35rem);
+    line-height: 1.5;
+    letter-spacing: -0.011em;
+  }
+
+  .hairline {
+    border-color: color-mix(in oklab, var(--color-hairline) 100%, transparent);
+  }
+}
+
+/* ============================================================
+   MATERIALS — grain, vignette, liquid edges
+   ============================================================ */
+
+@layer utilities {
+  .grain-layer {
+    position: fixed;
+    inset: -50%;
+    width: 200%;
+    height: 200%;
+    pointer-events: none;
+    z-index: 60;
+    opacity: 0.055;
+    mix-blend-mode: overlay;
+    background-image: url("/assets/texture/grain.svg");
+    background-size: 260px 260px;
+    will-change: transform;
+  }
+
+  .vignette::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(
+      120% 90% at 50% 45%,
+      transparent 40%,
+      rgba(0, 0, 0, 0.55) 100%
+    );
+  }
+
+  .edge-top {
+    border-top: 1px solid var(--color-hairline);
+  }
+  .edge-bottom {
+    border-bottom: 1px solid var(--color-hairline);
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .clip-reveal {
+    clip-path: inset(0 0 100% 0);
+  }
+
+  /* horizontal rails */
+  .no-bar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .no-bar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .mask-fade-x {
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent,
+      #000 8%,
+      #000 92%,
+      transparent
+    );
+    mask-image: linear-gradient(
+      to right,
+      transparent,
+      #000 8%,
+      #000 92%,
+      transparent
+    );
+  }
+
+  .gutter {
+    padding-left: clamp(1.25rem, 4vw, 4.5rem);
+    padding-right: clamp(1.25rem, 4vw, 4.5rem);
+  }
+}
+
+/* ============================================================
+   REDUCED MOTION — the whole experience degrades to a
+   well-typeset, static editorial page.
+   ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .grain-layer {
+    display: none;
+  }
+}
+
+/* ============================================================
+   KEYFRAMES
+   ============================================================ */
+
+@keyframes kb-marquee {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+/* The grain is jittered in 8 discrete steps rather than tweened —
+   film grain does not ease. */
+@keyframes kb-grain {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  10% {
+    transform: translate3d(-6%, -3%, 0);
+  }
+  20% {
+    transform: translate3d(-13%, 4%, 0);
+  }
+  30% {
+    transform: translate3d(6%, -9%, 0);
+  }
+  40% {
+    transform: translate3d(-4%, 12%, 0);
+  }
+  50% {
+    transform: translate3d(-11%, 2%, 0);
+  }
+  60% {
+    transform: translate3d(9%, 5%, 0);
+  }
+  70% {
+    transform: translate3d(-2%, -11%, 0);
+  }
+  80% {
+    transform: translate3d(12%, 6%, 0);
+  }
+  90% {
+    transform: translate3d(-9%, -6%, 0);
+  }
+}
+
+@keyframes kb-pulse {
+  0%,
+  100% {
+    opacity: 0.25;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.9);
+  }
+}
+
+@keyframes kb-drift {
+  from {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  to {
+    transform: translate3d(0, -3%, 0) scale(1.06);
+  }
+}
+
+@keyframes kb-quiz-fill {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}

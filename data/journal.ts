@@ -1,0 +1,61 @@
+import type { JournalPost } from '@/types';
+
+export const journalPosts: JournalPost[] = [
+  {
+    id: 'j1',
+    slug: 'why-fermentation-takes-time',
+    kicker: 'PROCESS',
+    title: 'Why fermentation takes time',
+    excerpt:
+      'Thirty days is not a marketing number. It is the shortest honest answer to a question the culture keeps asking.',
+    readTime: '6 MIN',
+    date: 'AUG 2026',
+    media: '/assets/editorial/journal-time.svg',
+    feature: 'lead',
+  },
+  {
+    id: 'j2',
+    slug: 'the-art-of-making-kombucha',
+    kicker: 'CRAFT',
+    title: 'The art of making kombucha',
+    excerpt: 'Everything we learned by getting the first eleven batches wrong.',
+    readTime: '9 MIN',
+    date: 'JUL 2026',
+    media: '/assets/editorial/journal-craft.svg',
+    feature: 'column',
+  },
+  {
+    id: 'j3',
+    slug: 'booch-and-food',
+    kicker: 'TABLE',
+    title: 'Booch and food',
+    excerpt:
+      'What to pour beside a Chettinad fry, a plate of idlis, and everything in between.',
+    readTime: '4 MIN',
+    date: 'JUL 2026',
+    media: '/assets/editorial/journal-food.svg',
+    feature: 'wide',
+  },
+  {
+    id: 'j4',
+    slug: 'behind-the-bottle',
+    kicker: 'DESIGN',
+    title: 'Behind the bottle',
+    excerpt: 'Why the glass is heavy, the label is painted, and the cap is loud.',
+    readTime: '5 MIN',
+    date: 'JUN 2026',
+    media: '/assets/editorial/journal-bottle.svg',
+    feature: 'column',
+  },
+  {
+    id: 'j5',
+    slug: 'kumbayah-culture',
+    kicker: 'COMMUNITY',
+    title: 'Kumbayah culture',
+    excerpt: 'The room, the records, and the people who keep showing up on Saturdays.',
+    readTime: '7 MIN',
+    date: 'JUN 2026',
+    media: '/assets/editorial/journal-culture.svg',
+    feature: 'quiet',
+  },
+];
