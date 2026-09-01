@@ -73,6 +73,7 @@ export function Statement() {
     <section
       ref={section}
       id="story"
+      data-chapter="WHAT IS KUMBAYAH"
       className={reduced ? 'relative bg-void py-[12svh]' : 'relative h-[330svh] bg-void'}
       aria-label="What is Kumbayah"
     >

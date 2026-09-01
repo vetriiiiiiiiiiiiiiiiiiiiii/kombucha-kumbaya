@@ -11,9 +11,9 @@ import { cn } from '@/lib/utils';
 
 /** Collage geometry — deliberately uneven, so no two frames line up. */
 const SPAN: Record<string, string> = {
-  tall: 'w-[70vw] sm:w-[22rem] aspect-[3/4] mt-0',
-  wide: 'w-[86vw] sm:w-[34rem] aspect-[16/10] mt-[8vh]',
-  square: 'w-[62vw] sm:w-[19rem] aspect-square mt-[18vh]',
+  tall: 'w-[76vw] sm:w-[28rem] lg:w-[32rem] aspect-[3/4] mt-0',
+  wide: 'w-[90vw] sm:w-[42rem] lg:w-[50rem] aspect-[16/10] mt-[10vh]',
+  square: 'w-[68vw] sm:w-[24rem] lg:w-[27rem] aspect-square mt-[20vh]',
 };
 
 /**
@@ -55,7 +55,8 @@ export function Culture() {
   }, [reduced]);
 
   return (
-    <section ref={section} id="culture" className="relative bg-ink py-[13svh]" aria-label="Culture">
+    <section ref={section} id="culture"
+      data-chapter="CULTURE" className="relative bg-ink py-[13svh]" aria-label="Culture">
       <div className="gutter">
         <SectionMeta index="07" label="CULTURE" note="Music, food, cafés, art, community." />
 

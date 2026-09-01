@@ -51,7 +51,8 @@ export function FindKumbayah() {
   const liveCount = cities.filter((c) => c.status === 'LIVE').length;
 
   return (
-    <section id="find" className="relative bg-ink py-[13svh]" aria-label="Find Kumbayah">
+    <section id="find"
+      data-chapter="FIND KUMBAYAH" className="relative bg-ink py-[13svh]" aria-label="Find Kumbayah">
       <div className="gutter">
         <SectionMeta
           index="09"

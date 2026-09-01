@@ -57,7 +57,8 @@ export function People() {
   }, [reduced]);
 
   return (
-    <section ref={section} className="relative bg-void" aria-label="The people">
+    <section ref={section} className="relative bg-void" data-chapter="MADE BY PEOPLE"
+      aria-label="The people">
       {/* The runway gives the rail room to pan; the founder story lives outside
           it so it can never overlap the pinned stage. */}
       <div ref={runway} className={reduced ? 'relative' : 'relative md:h-[300svh]'}>
@@ -66,7 +67,7 @@ export function People() {
           <SectionMeta
             index="06"
             label="THE PEOPLE"
-            note="Documentary photography to be shot on site — frames are placeholders."
+            note="Generated artwork stands in for the documentary shoot."
           />
           <AnimatedText
             text="MADE BY PEOPLE."

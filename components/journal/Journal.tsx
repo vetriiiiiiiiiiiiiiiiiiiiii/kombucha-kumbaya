@@ -20,7 +20,8 @@ export function Journal() {
   const quiet = journalPosts.find((p) => p.feature === 'quiet');
 
   return (
-    <section id="journal" className="relative bg-void py-[13svh]" aria-label="Journal">
+    <section id="journal"
+      data-chapter="FROM THE CULTURE" className="relative bg-void py-[13svh]" aria-label="Journal">
       <div className="gutter">
         <SectionMeta index="10" label="JOURNAL" note="Longer reading, published slowly." />
 
@@ -40,15 +41,44 @@ export function Journal() {
           </a>
         </div>
 
-        {/* lead + columns */}
-        <div className="mt-16 grid gap-12 lg:grid-cols-[1.35fr_1fr] lg:gap-16">
-          {lead ? <Post post={lead} size="lead" /> : null}
+      </div>
 
-          <div className="flex flex-col gap-12">
-            {columns.map((post) => (
-              <Post key={post.id} post={post} size="column" />
-            ))}
+      {/* The lead runs full-bleed with its title breaking over the image —
+          the one moment in the section that ignores the gutter entirely. */}
+      {lead ? (
+        <a href="#journal" data-cursor="READ" className="group relative mt-16 block">
+          <Figure
+            src={lead.media}
+            alt={lead.title}
+            ratio="21 / 9"
+            parallax={10}
+            className="w-full"
+          />
+          <div className="pointer-events-none absolute inset-0 flex items-end">
+            <div className="w-full gutter pb-[clamp(1.5rem,4vw,3.5rem)]">
+              <span className="label-sm text-honey">{lead.kicker}</span>
+              <h3 className="display-tight mt-4 max-w-[16ch] text-[clamp(2rem,6vw,5.5rem)] text-bone drop-shadow-[0_10px_40px_rgba(0,0,0,0.9)]">
+                {lead.title}
+              </h3>
+              <div className="mt-6 flex flex-wrap items-end justify-between gap-6">
+                <p className="max-w-[52ch] text-[0.98rem] leading-relaxed text-scoby/90">
+                  {lead.excerpt}
+                </p>
+                <span className="label-sm text-muted/70">
+                  {lead.date} / {lead.readTime}
+                </span>
+              </div>
+            </div>
           </div>
+        </a>
+      ) : null}
+
+      <div className="gutter">
+        {/* columns */}
+        <div className="mt-20 grid gap-12 md:grid-cols-2 lg:gap-16">
+          {columns.map((post) => (
+            <Post key={post.id} post={post} size="column" />
+          ))}
         </div>
 
         {/* wide band */}

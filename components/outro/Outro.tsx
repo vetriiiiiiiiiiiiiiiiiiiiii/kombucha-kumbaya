@@ -64,7 +64,8 @@ export function Outro() {
   }, [reduced]);
 
   return (
-    <section ref={section} className={reduced ? 'relative h-[100svh] bg-void' : 'relative h-[210svh] bg-void'} aria-label="Take a little life with you">
+    <section ref={section} className={reduced ? 'relative h-[100svh] bg-void' : 'relative h-[210svh] bg-void'} data-chapter="TAKE A LITTLE LIFE"
+      aria-label="Take a little life with you">
       <div className={reduced ? 'relative flex h-[100svh] flex-col items-center justify-center overflow-hidden' : 'sticky top-0 flex h-[100svh] flex-col items-center justify-center overflow-hidden'}>
         <div className="absolute inset-0 bg-[radial-gradient(60%_45%_at_50%_58%,rgba(192,118,42,0.14)_0%,transparent_70%)]" />
 

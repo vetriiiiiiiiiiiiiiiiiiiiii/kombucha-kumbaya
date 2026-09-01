@@ -44,7 +44,8 @@ export function D2C() {
   }, [reduced]);
 
   return (
-    <section ref={section} id="shop" className="relative bg-ink py-[13svh]" aria-label="Shop Kumbayah">
+    <section ref={section} id="shop"
+      data-chapter="BRING SOME BOOCH HOME" className="relative bg-ink py-[13svh]" aria-label="Shop Kumbayah">
       <div className="gutter">
         <SectionMeta index="11" label="D2C" note="Concept prototype — checkout is represented, not live." />
 

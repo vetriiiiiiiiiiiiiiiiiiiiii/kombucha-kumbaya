@@ -1,11 +1,14 @@
 'use client';
 
-import { useRef } from 'react';
+import dynamic from 'next/dynamic';
+import { useEffect, useRef, useState } from 'react';
 import { gsap } from '@/lib/gsap';
-import { useIsomorphicLayoutEffect, useReducedMotion } from '@/hooks/useEnvironment';
+import { useImmersive, useIsomorphicLayoutEffect, useReducedMotion } from '@/hooks/useEnvironment';
 import { SectionMeta } from '@/components/ui/SectionMeta';
 import { MagneticButton } from '@/components/ui/MagneticButton';
 import { getProduct } from '@/data/products';
+
+const BottleScene = dynamic(() => import('@/components/hero/BottleScene'), { ssr: false });
 
 const HERO_PRODUCT = getProduct('nannari');
 
@@ -30,6 +33,21 @@ export function ProductShowcase() {
   const notes = useRef<HTMLSpanElement[]>([]);
   const title = useRef<HTMLHeadingElement>(null);
   const reduced = useReducedMotion();
+  const immersive = useImmersive();
+
+  /** Drives the turn of the 3D bottle; also read by the flat fallback. */
+  const progress = useRef(0);
+  const [inView, setInView] = useState(false);
+
+  useEffect(() => {
+    const el = section.current;
+    if (!el) return;
+    const io = new IntersectionObserver(([e]) => setInView(e.isIntersecting), {
+      rootMargin: '20% 0px',
+    });
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
 
   useIsomorphicLayoutEffect(() => {
     if (!section.current || reduced) return;
@@ -41,16 +59,24 @@ export function ProductShowcase() {
           start: 'top top',
           end: 'bottom bottom',
           scrub: 0.7,
+          onUpdate: (self) => {
+            progress.current = self.progress;
+          },
         },
       });
 
-      tl.fromTo(
-        bottle.current,
-        { yPercent: 26, rotate: -7, scale: 0.86 },
-        { yPercent: -8, rotate: 5, scale: 1.04, ease: 'none' },
-        0
-      )
-        .fromTo(glow.current, { scale: 0.7, opacity: 0.35 }, { scale: 1.25, opacity: 0.9, ease: 'none' }, 0)
+      // Only the flat fallback is tweened here; the 3D bottle turns itself
+      // from the same progress ref.
+      if (bottle.current) {
+        tl.fromTo(
+          bottle.current,
+          { yPercent: 26, rotate: -7, scale: 0.86 },
+          { yPercent: -8, rotate: 5, scale: 1.04, ease: 'none' },
+          0
+        );
+      }
+
+      tl.fromTo(glow.current, { scale: 0.7, opacity: 0.35 }, { scale: 1.25, opacity: 0.9, ease: 'none' }, 0)
         .fromTo(backdrop.current, { yPercent: -8, scale: 1.15 }, { yPercent: 8, scale: 1.25, ease: 'none' }, 0)
         .fromTo(title.current, { yPercent: 18, opacity: 0.15 }, { yPercent: -14, opacity: 1, ease: 'none' }, 0);
 
@@ -72,6 +98,7 @@ export function ProductShowcase() {
     <section
       ref={section}
       className={reduced ? 'relative bg-void' : 'relative h-[260svh] bg-void'}
+      data-chapter="IN DETAIL"
       aria-label={`${HERO_PRODUCT.name} in detail`}
     >
       <div className={reduced ? 'relative h-[100svh] overflow-hidden' : 'sticky top-0 h-[100svh] overflow-hidden'}>
@@ -104,16 +131,30 @@ export function ProductShowcase() {
           {HERO_PRODUCT.flavour.toUpperCase()}
         </h2>
 
-        <div className="absolute inset-0 flex items-center justify-center">
-          <img
-            ref={bottle}
-            src={HERO_PRODUCT.media.bottle}
-            alt={HERO_PRODUCT.name}
-            loading="lazy"
-            decoding="async"
-            className="h-[62svh] w-auto drop-shadow-[0_50px_90px_rgba(0,0,0,0.75)] will-change-transform"
-          />
-        </div>
+        {/* The bottle turns in real 3D here, the same lathed geometry as the
+            hero. Flat art is kept for touch, small screens and reduced motion. */}
+        {immersive ? (
+          <div className="absolute inset-0">
+            <BottleScene
+              accent={HERO_PRODUCT.colour.accent}
+              deep={HERO_PRODUCT.colour.deep}
+              flavour={HERO_PRODUCT.flavour}
+              progress={progress}
+              paused={!inView}
+            />
+          </div>
+        ) : (
+          <div className="absolute inset-0 flex items-center justify-center">
+            <img
+              ref={bottle}
+              src={HERO_PRODUCT.media.bottle}
+              alt={HERO_PRODUCT.name}
+              loading="lazy"
+              decoding="async"
+              className="h-[62svh] w-auto drop-shadow-[0_50px_90px_rgba(0,0,0,0.75)] will-change-transform"
+            />
+          </div>
+        )}
 
         {/* flavour notes around the bottle */}
         <div className="pointer-events-none absolute inset-0 hidden md:block">

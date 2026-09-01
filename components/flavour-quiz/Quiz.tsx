@@ -122,6 +122,7 @@ export function Quiz() {
     <section
       ref={section}
       id="quiz"
+      data-chapter="FIND YOUR BOOCH"
       className="relative overflow-hidden bg-ink py-[14svh]"
       aria-label="Find your booch quiz"
     >

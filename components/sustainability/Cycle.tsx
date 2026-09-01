@@ -63,6 +63,7 @@ export function Cycle() {
     <section
       ref={section}
       id="cycle"
+      data-chapter="NOTHING GOES TO WASTE"
       className={reduced ? 'relative bg-void py-[10svh]' : 'relative bg-void md:h-[280svh]'}
       aria-label="Nothing goes to waste"
     >

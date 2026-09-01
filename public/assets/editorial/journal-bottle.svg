@@ -1,46 +1,87 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1250" width="1000" height="1250" role="img" aria-label="Behind the bottle placeholder">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1250" width="1000" height="1250" role="img" aria-label="Behind the bottle">
+
   <defs>
-    <linearGradient id="bg-e15" x1="0.1" y1="0" x2="0.9" y2="1">
-      <stop offset="0" stop-color="#1A1108"/>
-      <stop offset="0.55" stop-color="#0C0906"/>
-      <stop offset="1" stop-color="#070504"/>
+    
+  <radialGradient id="e211-bubble" cx="38%" cy="34%" r="68%">
+    <stop offset="0%" stop-color="#f4d4db" stop-opacity="0.18"/>
+    <stop offset="62%" stop-color="#f4d4db" stop-opacity="0.05"/>
+    <stop offset="88%" stop-color="#f4d4db" stop-opacity="0.42"/>
+    <stop offset="100%" stop-color="#f4d4db" stop-opacity="0.08"/>
+  </radialGradient>
+    
+  <filter id="e211-bk-far" x="-35%" y="-35%" width="170%" height="170%">
+    <feGaussianBlur stdDeviation="25"/>
+  </filter>
+    
+  <filter id="e211-bk-mid" x="-35%" y="-35%" width="170%" height="170%">
+    <feGaussianBlur stdDeviation="7.5"/>
+  </filter>
+    
+  <filter id="e211-soft" x="-35%" y="-35%" width="170%" height="170%">
+    <feGaussianBlur stdDeviation="62.5"/>
+  </filter>
+    
+  <filter id="e211-warp" x="-25%" y="-25%" width="150%" height="150%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.006 0.011" numOctaves="4" seed="211" result="t"/>
+    <feDisplacementMap in="SourceGraphic" in2="t" scale="120" xChannelSelector="R" yChannelSelector="G"/>
+    <feGaussianBlur stdDeviation="4"/>
+  </filter>
+    
+  <filter id="e211-caustic" x="0" y="0" width="100%" height="100%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.01" numOctaves="2" seed="212" result="n"/>
+    <feColorMatrix in="n" type="matrix"
+      values="0 0 0 0 1  0 0 0 0 0.82  0 0 0 0 0.55  1.6 0 0 0 -0.62"/>
+    <feGaussianBlur stdDeviation="2"/>
+  </filter>
+    
+  <filter id="e211-grain" x="0" y="0" width="100%" height="100%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" seed="214"/>
+    <feColorMatrix type="saturate" values="0"/>
+    <feComponentTransfer><feFuncA type="linear" slope="0.22"/></feComponentTransfer>
+    <feComposite operator="in" in2="SourceGraphic"/>
+  </filter>
+    
+  <radialGradient id="e211-vig" cx="50%" cy="46%" r="72%">
+    <stop offset="45%" stop-color="#000" stop-opacity="0"/>
+    <stop offset="100%" stop-color="#000" stop-opacity="0.78"/>
+  </radialGradient>
+    
+  <linearGradient id="e211-obj" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0%" stop-color="#2c2022"/>
+    <stop offset="16%" stop-color="#7a6468"/>
+    <stop offset="46%" stop-color="#4e383c"/>
+    <stop offset="82%" stop-color="#6c5358"/>
+    <stop offset="100%" stop-color="#251b1d"/>
+  </linearGradient>
+  <linearGradient id="e211-fill" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#f2cbd3"/>
+    <stop offset="35%" stop-color="#E9A8B6"/>
+    <stop offset="100%" stop-color="#8a636b"/>
+  </linearGradient>
+    <linearGradient id="e211-room" x1="0.2" y1="0" x2="0.8" y2="1">
+      <stop offset="0%" stop-color="#302224"/>
+      <stop offset="55%" stop-color="#0C0906"/>
+      <stop offset="100%" stop-color="#070504"/>
     </linearGradient>
-    <radialGradient id="bloom-e15" cx="0.34" cy="0.3" r="0.6">
-      <stop offset="0" stop-color="#E9A8B6" stop-opacity="0.5"/>
-      <stop offset="1" stop-color="#E9A8B6" stop-opacity="0"/>
-    </radialGradient>
-    <filter id="warp-e15" x="-20%" y="-20%" width="140%" height="140%">
-      <feTurbulence type="fractalNoise" baseFrequency="0.005 0.009" numOctaves="4" seed="18" result="t"/>
-      <feDisplacementMap in="SourceGraphic" in2="t" scale="160" xChannelSelector="R" yChannelSelector="G"/>
-      <feGaussianBlur stdDeviation="6"/>
-    </filter>
-    <filter id="gr-e15">
-      <feTurbulence type="fractalNoise" baseFrequency="0.75" numOctaves="3" seed="18"/>
-      <feColorMatrix type="saturate" values="0"/>
-      <feComponentTransfer><feFuncA type="linear" slope="0.2"/></feComponentTransfer>
-      <feComposite operator="in" in2="SourceGraphic"/>
-    </filter>
   </defs>
-
-  <rect width="1000" height="1250" fill="url(#bg-e15)"/>
-  <g filter="url(#warp-e15)" opacity="0.9">
-    <rect width="1000" height="1250" fill="url(#bloom-e15)"/>
-    <ellipse cx="680" cy="925" rx="360" ry="325" fill="#E9A8B6" opacity="0.16"/>
+  
+  <rect width="1000" height="1250" fill="#070504"/>
+  <rect width="1000" height="1250" fill="url(#e211-room)"/>
+  <g stroke="#f5d8de" stroke-opacity="0.09" stroke-width="1">
+    <line x1="0" y1="0" x2="1000" y2="0"/><line x1="0" y1="89.29" x2="1000" y2="89.29"/><line x1="0" y1="178.57" x2="1000" y2="178.57"/><line x1="0" y1="267.86" x2="1000" y2="267.86"/><line x1="0" y1="357.14" x2="1000" y2="357.14"/><line x1="0" y1="446.43" x2="1000" y2="446.43"/><line x1="0" y1="535.71" x2="1000" y2="535.71"/><line x1="0" y1="625" x2="1000" y2="625"/><line x1="0" y1="714.29" x2="1000" y2="714.29"/><line x1="0" y1="803.57" x2="1000" y2="803.57"/><line x1="0" y1="892.86" x2="1000" y2="892.86"/><line x1="0" y1="982.14" x2="1000" y2="982.14"/><line x1="0" y1="1071.43" x2="1000" y2="1071.43"/><line x1="0" y1="1160.71" x2="1000" y2="1160.71"/>
+    <line x1="0" y1="0" x2="0" y2="1250"/><line x1="100" y1="0" x2="100" y2="1250"/><line x1="200" y1="0" x2="200" y2="1250"/><line x1="300" y1="0" x2="300" y2="1250"/><line x1="400" y1="0" x2="400" y2="1250"/><line x1="500" y1="0" x2="500" y2="1250"/><line x1="600" y1="0" x2="600" y2="1250"/><line x1="700" y1="0" x2="700" y2="1250"/><line x1="800" y1="0" x2="800" y2="1250"/><line x1="900" y1="0" x2="900" y2="1250"/>
   </g>
-
-  <g stroke="#F3EDE1" stroke-opacity="0.5" stroke-width="1">
-    <path d="M26 60 L26 26 L60 26"/>
-    <path d="M940 26 L974 26 L974 60"/>
-    <path d="M26 1190 L26 1224 L60 1224"/>
-    <path d="M940 1224 L974 1224 L974 1190"/>
+  <g transform="translate(335 212.5) scale(0.83)">
+    <path d="M148 96 L148 208 C148 246 104 268 104 330 L104 902 C104 936 122 952 156 952 L244 952 C278 952 296 936 296 902 L296 330 C296 268 252 246 252 208 L252 96 Z" fill="#E9A8B6" fill-opacity="0.08" stroke="#f5d8de" stroke-opacity="0.8" stroke-width="4"/>
+    <rect x="140" y="52" width="120" height="54" rx="8" fill="none" stroke="#f5d8de" stroke-opacity="0.8" stroke-width="4"/>
+    <rect x="104" y="556" width="192" height="206" fill="none" stroke="#f5d8de" stroke-opacity="0.45" stroke-width="3" stroke-dasharray="14 10"/>
+    <line x1="200" y1="96" x2="200" y2="952" stroke="#f5d8de" stroke-opacity="0.25" stroke-width="2" stroke-dasharray="18 14"/>
   </g>
-  <g stroke="#F3EDE1" stroke-opacity="0.14">
-    <line x1="500" y1="607" x2="500" y2="643"/>
-    <line x1="482" y1="625" x2="518" y2="625"/>
-  </g>
-
-  <text x="34" y="1182" font-family="Menlo, monospace" font-size="19" letter-spacing="5" fill="#F3EDE1" fill-opacity="0.82">BEHIND THE BOTTLE</text>
-  <text x="34" y="1208" font-family="Menlo, monospace" font-size="14" letter-spacing="3.5" fill="#F3EDE1" fill-opacity="0.4">PLACEHOLDER / 4:5 / REPLACE WITH PHOTOGRAPHY</text>
-
-  <rect width="1000" height="1250" filter="url(#gr-e15)" opacity="0.8"/>
+  <line x1="300" y1="325" x2="460" y2="325" stroke="#f5d8de" stroke-opacity="0.5" stroke-width="1"/>
+        <circle cx="300" cy="325" r="3.5" fill="#f5d8de" opacity="0.85"/><line x1="720" y1="500" x2="540" y2="500" stroke="#f5d8de" stroke-opacity="0.5" stroke-width="1"/>
+        <circle cx="720" cy="500" r="3.5" fill="#f5d8de" opacity="0.85"/><line x1="280" y1="775" x2="460" y2="775" stroke="#f5d8de" stroke-opacity="0.5" stroke-width="1"/>
+        <circle cx="280" cy="775" r="3.5" fill="#f5d8de" opacity="0.85"/><line x1="740" y1="937.5" x2="540" y2="937.5" stroke="#f5d8de" stroke-opacity="0.5" stroke-width="1"/>
+        <circle cx="740" cy="937.5" r="3.5" fill="#f5d8de" opacity="0.85"/>
+  <rect width="1000" height="1250" fill="url(#e211-vig)"/>
+  <rect width="1000" height="1250" filter="url(#e211-grain)" opacity="0.6" style="mix-blend-mode:overlay"/>
 </svg>

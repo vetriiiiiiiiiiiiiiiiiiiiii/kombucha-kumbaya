@@ -119,6 +119,7 @@ export function Fermentation() {
     <section
       ref={section}
       id="ferment"
+      data-chapter="30 DAYS OF PATIENCE"
       // Height is measured from the rail once mounted; this is the pre-hydration fallback.
       className={horizontal ? 'relative h-[520svh]' : 'relative'}
       aria-label="Thirty days of patience"

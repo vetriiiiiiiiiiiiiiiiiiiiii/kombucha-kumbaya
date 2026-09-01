@@ -1,40 +1,107 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 900" width="900" height="900" aria-hidden="true">
+
   <defs>
-    <linearGradient id="pl-p4" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#B2643C" stop-opacity="0.85"/>
-      <stop offset="1" stop-color="#2B160B"/>
-    </linearGradient>
-    <radialGradient id="pg-p4" cx="0.5" cy="0.6" r="0.6">
-      <stop offset="0" stop-color="#B2643C" stop-opacity="0.28"/>
-      <stop offset="1" stop-color="#B2643C" stop-opacity="0"/>
+    
+  <filter id="p-p4-soft" x="-35%" y="-35%" width="170%" height="170%">
+    <feGaussianBlur stdDeviation="30"/>
+  </filter>
+    
+  <filter id="p-p4-bk-mid" x="-35%" y="-35%" width="170%" height="170%">
+    <feGaussianBlur stdDeviation="7"/>
+  </filter>
+    
+  <filter id="p-p4-grain" x="0" y="0" width="100%" height="100%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" seed="239"/>
+    <feColorMatrix type="saturate" values="0"/>
+    <feComponentTransfer><feFuncA type="linear" slope="0.16"/></feComponentTransfer>
+    <feComposite operator="in" in2="SourceGraphic"/>
+  </filter>
+    
+  <radialGradient id="p-p4-vig" cx="50%" cy="52%" r="72%">
+    <stop offset="45%" stop-color="#000" stop-opacity="0"/>
+    <stop offset="100%" stop-color="#000" stop-opacity="0.7"/>
+  </radialGradient>
+    <radialGradient id="p-p4-halo" cx="50%" cy="58%" r="55%">
+      <stop offset="0%" stop-color="#B2643C" stop-opacity="0.42"/>
+      <stop offset="100%" stop-color="#B2643C" stop-opacity="0"/>
     </radialGradient>
-    <filter id="pgr-p4">
-      <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3"/>
-      <feColorMatrix type="saturate" values="0"/>
-      <feComponentTransfer><feFuncA type="linear" slope="0.14"/></feComponentTransfer>
-      <feComposite operator="in" in2="SourceGraphic"/>
-    </filter>
+    
+  <linearGradient id="p-p4-obj" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0%" stop-color="#130a05"/>
+    <stop offset="16%" stop-color="#4d3b32"/>
+    <stop offset="46%" stop-color="#221209"/>
+    <stop offset="82%" stop-color="#3a261c"/>
+    <stop offset="100%" stop-color="#100804"/>
+  </linearGradient>
+  <linearGradient id="p-p4-fill" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#d1a28a"/>
+    <stop offset="35%" stop-color="#B2643C"/>
+    <stop offset="100%" stop-color="#542d1a"/>
+  </linearGradient>
+    <linearGradient id="p-p4-ground" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#2B160B" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#070504"/>
+    </linearGradient>
   </defs>
-  <rect width="800" height="800" fill="#0A0705"/>
-  <ellipse cx="400" cy="520" rx="330" ry="260" fill="url(#pg-p4)"/>
-  <g transform="translate(100 200) scale(0.42)" opacity="1">
-      <rect x="140" y="60" width="120" height="48" rx="6" fill="#2B160B"/>
-      <path d="M148 96 L148 208 C148 246 104 268 104 330 L104 902 C104 936 122 952 156 952 L244 952 C278 952 296 936 296 902 L296 330 C296 268 252 246 252 208 L252 96 Z" fill="url(#pl-p4)" stroke="#fff" stroke-opacity="0.2" stroke-width="2"/>
-      <rect x="104" y="560" width="192" height="180" fill="#F3EDE1" opacity="0.9"/>
-      <text x="200" y="640" text-anchor="middle" font-family="Georgia, serif" font-size="26" letter-spacing="1" fill="#171109">KUMBAYAH</text>
-    </g>
-  <g transform="translate(266.66666666666663 216) scale(0.39999999999999997)" opacity="0.92">
-      <rect x="140" y="60" width="120" height="48" rx="6" fill="#2B160B"/>
-      <path d="M148 96 L148 208 C148 246 104 268 104 330 L104 902 C104 936 122 952 156 952 L244 952 C278 952 296 936 296 902 L296 330 C296 268 252 246 252 208 L252 96 Z" fill="url(#pl-p4)" stroke="#fff" stroke-opacity="0.2" stroke-width="2"/>
-      <rect x="104" y="560" width="192" height="180" fill="#F3EDE1" opacity="0.9"/>
-      <text x="200" y="640" text-anchor="middle" font-family="Georgia, serif" font-size="26" letter-spacing="1" fill="#171109">KUMBAYAH</text>
-    </g>
-  <g transform="translate(433.3333333333333 200) scale(0.42)" opacity="0.84">
-      <rect x="140" y="60" width="120" height="48" rx="6" fill="#2B160B"/>
-      <path d="M148 96 L148 208 C148 246 104 268 104 330 L104 902 C104 936 122 952 156 952 L244 952 C278 952 296 936 296 902 L296 330 C296 268 252 246 252 208 L252 96 Z" fill="url(#pl-p4)" stroke="#fff" stroke-opacity="0.2" stroke-width="2"/>
-      <rect x="104" y="560" width="192" height="180" fill="#F3EDE1" opacity="0.9"/>
-      <text x="200" y="640" text-anchor="middle" font-family="Georgia, serif" font-size="26" letter-spacing="1" fill="#171109">KUMBAYAH</text>
-    </g>
-  <ellipse cx="400" cy="694" rx="300" ry="26" fill="#000" opacity="0.55"/>
-  <rect width="800" height="800" filter="url(#pgr-p4)" opacity="0.7"/>
+
+  <rect width="900" height="900" fill="#070504"/>
+  <ellipse cx="450" cy="495.00000000000006" rx="396" ry="324" fill="url(#p-p4-halo)"/>
+  <rect y="648" width="900" height="252.00000000000003" fill="url(#p-p4-ground)"/>
+  
+  <g transform="translate(206.75 185.25) scale(0.43)" opacity="0.96">
+    <ellipse cx="200" cy="968" rx="132" ry="17" fill="#000" opacity="0.62"/>
+    <path d="M148 96 L148 208 C148 246 104 268 104 330 L104 902 C104 936 122 952 156 952 L244 952 C278 952 296 936 296 902 L296 330 C296 268 252 246 252 208 L252 96 Z" fill="url(#p-p4-obj)"/>
+    <path d="M104 392 L104 902 C104 936 122 952 156 952 L244 952 C278 952 296 936 296 902 L296 392 Z" fill="url(#p-p4-fill)" opacity="0.92"/>
+    <ellipse cx="200" cy="392" rx="96" ry="12" fill="#d1a28a" opacity="0.45"/>
+    <rect x="140" y="52" width="120" height="54" rx="8" fill="url(#p-p4-obj)"/>
+    <rect x="140" y="52" width="120" height="12" rx="6" fill="#d1a28a" opacity="0.3"/>
+    <rect x="104" y="556" width="192" height="196" fill="#EFE7D7" opacity="0.93"/>
+           <text x="200" y="628" text-anchor="middle" font-family="Georgia, serif" font-size="30" letter-spacing="1.4" fill="#171109">KUMBAYAH</text>
+           <line x1="136" y1="652" x2="264" y2="652" stroke="#171109" stroke-opacity="0.3" stroke-width="2"/>
+    <rect x="126" y="336" width="16" height="576" rx="8" fill="#FFF" opacity="0.26"/>
+    <path d="M148 96 L148 208 C148 246 104 268 104 330 L104 902 C104 936 122 952 156 952 L244 952 C278 952 296 936 296 902 L296 330 C296 268 252 246 252 208 L252 96 Z" fill="none" stroke="#d1a28a" stroke-opacity="0.6" stroke-width="6"/>
+  </g>
+  <g transform="translate(310.25 181.75) scale(0.44)" opacity="0.99">
+    <ellipse cx="200" cy="968" rx="132" ry="17" fill="#000" opacity="0.62"/>
+    <path d="M148 96 L148 208 C148 246 104 268 104 330 L104 902 C104 936 122 952 156 952 L244 952 C278 952 296 936 296 902 L296 330 C296 268 252 246 252 208 L252 96 Z" fill="url(#p-p4-obj)"/>
+    <path d="M104 392 L104 902 C104 936 122 952 156 952 L244 952 C278 952 296 936 296 902 L296 392 Z" fill="url(#p-p4-fill)" opacity="0.92"/>
+    <ellipse cx="200" cy="392" rx="96" ry="12" fill="#d1a28a" opacity="0.45"/>
+    <rect x="140" y="52" width="120" height="54" rx="8" fill="url(#p-p4-obj)"/>
+    <rect x="140" y="52" width="120" height="12" rx="6" fill="#d1a28a" opacity="0.3"/>
+    <rect x="104" y="556" width="192" height="196" fill="#EFE7D7" opacity="0.93"/>
+           <text x="200" y="628" text-anchor="middle" font-family="Georgia, serif" font-size="30" letter-spacing="1.4" fill="#171109">KUMBAYAH</text>
+           <line x1="136" y1="652" x2="264" y2="652" stroke="#171109" stroke-opacity="0.3" stroke-width="2"/>
+    <rect x="126" y="336" width="16" height="576" rx="8" fill="#FFF" opacity="0.26"/>
+    <path d="M148 96 L148 208 C148 246 104 268 104 330 L104 902 C104 936 122 952 156 952 L244 952 C278 952 296 936 296 902 L296 330 C296 268 252 246 252 208 L252 96 Z" fill="none" stroke="#d1a28a" stroke-opacity="0.6" stroke-width="6"/>
+  </g>
+  <g transform="translate(413.75 181.75) scale(0.44)" opacity="0.99">
+    <ellipse cx="200" cy="968" rx="132" ry="17" fill="#000" opacity="0.62"/>
+    <path d="M148 96 L148 208 C148 246 104 268 104 330 L104 902 C104 936 122 952 156 952 L244 952 C278 952 296 936 296 902 L296 330 C296 268 252 246 252 208 L252 96 Z" fill="url(#p-p4-obj)"/>
+    <path d="M104 392 L104 902 C104 936 122 952 156 952 L244 952 C278 952 296 936 296 902 L296 392 Z" fill="url(#p-p4-fill)" opacity="0.92"/>
+    <ellipse cx="200" cy="392" rx="96" ry="12" fill="#d1a28a" opacity="0.45"/>
+    <rect x="140" y="52" width="120" height="54" rx="8" fill="url(#p-p4-obj)"/>
+    <rect x="140" y="52" width="120" height="12" rx="6" fill="#d1a28a" opacity="0.3"/>
+    <rect x="104" y="556" width="192" height="196" fill="#EFE7D7" opacity="0.93"/>
+           <text x="200" y="628" text-anchor="middle" font-family="Georgia, serif" font-size="30" letter-spacing="1.4" fill="#171109">KUMBAYAH</text>
+           <line x1="136" y1="652" x2="264" y2="652" stroke="#171109" stroke-opacity="0.3" stroke-width="2"/>
+    <rect x="126" y="336" width="16" height="576" rx="8" fill="#FFF" opacity="0.26"/>
+    <path d="M148 96 L148 208 C148 246 104 268 104 330 L104 902 C104 936 122 952 156 952 L244 952 C278 952 296 936 296 902 L296 330 C296 268 252 246 252 208 L252 96 Z" fill="none" stroke="#d1a28a" stroke-opacity="0.6" stroke-width="6"/>
+  </g>
+  <g transform="translate(517.25 185.25) scale(0.43)" opacity="0.96">
+    <ellipse cx="200" cy="968" rx="132" ry="17" fill="#000" opacity="0.62"/>
+    <path d="M148 96 L148 208 C148 246 104 268 104 330 L104 902 C104 936 122 952 156 952 L244 952 C278 952 296 936 296 902 L296 330 C296 268 252 246 252 208 L252 96 Z" fill="url(#p-p4-obj)"/>
+    <path d="M104 392 L104 902 C104 936 122 952 156 952 L244 952 C278 952 296 936 296 902 L296 392 Z" fill="url(#p-p4-fill)" opacity="0.92"/>
+    <ellipse cx="200" cy="392" rx="96" ry="12" fill="#d1a28a" opacity="0.45"/>
+    <rect x="140" y="52" width="120" height="54" rx="8" fill="url(#p-p4-obj)"/>
+    <rect x="140" y="52" width="120" height="12" rx="6" fill="#d1a28a" opacity="0.3"/>
+    <rect x="104" y="556" width="192" height="196" fill="#EFE7D7" opacity="0.93"/>
+           <text x="200" y="628" text-anchor="middle" font-family="Georgia, serif" font-size="30" letter-spacing="1.4" fill="#171109">KUMBAYAH</text>
+           <line x1="136" y1="652" x2="264" y2="652" stroke="#171109" stroke-opacity="0.3" stroke-width="2"/>
+    <rect x="126" y="336" width="16" height="576" rx="8" fill="#FFF" opacity="0.26"/>
+    <path d="M148 96 L148 208 C148 246 104 268 104 330 L104 902 C104 936 122 952 156 952 L244 952 C278 952 296 936 296 902 L296 330 C296 268 252 246 252 208 L252 96 Z" fill="none" stroke="#d1a28a" stroke-opacity="0.6" stroke-width="6"/>
+  </g>
+  <ellipse cx="450" cy="661.5" rx="306" ry="25.2" fill="#000" opacity="0.7" filter="url(#p-p4-bk-mid)"/>
+  <g filter="url(#p-p4-bk-mid)" opacity="0.7"><circle cx="1.7" cy="630.55" r="0.71" fill="#d1a28a" opacity="0.28"/><circle cx="357.21" cy="692.25" r="1.21" fill="#d1a28a" opacity="0.3"/><circle cx="639.39" cy="234.89" r="1.39" fill="#d1a28a" opacity="0.15"/><circle cx="236.38" cy="298.69" r="2.36" fill="#d1a28a" opacity="0.32"/><circle cx="672.3" cy="769.74" r="1.35" fill="#d1a28a" opacity="0.12"/><circle cx="552.71" cy="461" r="2.48" fill="#d1a28a" opacity="0.17"/><circle cx="833.6" cy="890.85" r="0.84" fill="#d1a28a" opacity="0.3"/><circle cx="230.26" cy="888.24" r="1.31" fill="#d1a28a" opacity="0.34"/><circle cx="226.05" cy="395.05" r="1.33" fill="#d1a28a" opacity="0.12"/><circle cx="419.31" cy="265.43" r="2.26" fill="#d1a28a" opacity="0.1"/><circle cx="482.73" cy="715.16" r="0.84" fill="#d1a28a" opacity="0.29"/><circle cx="14.38" cy="465.57" r="0.97" fill="#d1a28a" opacity="0.16"/><circle cx="650.79" cy="157.63" r="2.02" fill="#d1a28a" opacity="0.13"/><circle cx="273.27" cy="227.29" r="1.72" fill="#d1a28a" opacity="0.13"/><circle cx="225.62" cy="301.65" r="0.75" fill="#d1a28a" opacity="0.3"/><circle cx="19.26" cy="531.02" r="1.4" fill="#d1a28a" opacity="0.41"/><circle cx="702.67" cy="43.54" r="0.8" fill="#d1a28a" opacity="0.4"/><circle cx="370.07" cy="696.17" r="1.91" fill="#d1a28a" opacity="0.29"/><circle cx="699.04" cy="207" r="1.91" fill="#d1a28a" opacity="0.42"/><circle cx="698.55" cy="63.22" r="1.6" fill="#d1a28a" opacity="0.31"/><circle cx="453.57" cy="191.75" r="2.23" fill="#d1a28a" opacity="0.42"/><circle cx="222.8" cy="647.97" r="1.4" fill="#d1a28a" opacity="0.38"/><circle cx="782.41" cy="131.31" r="0.92" fill="#d1a28a" opacity="0.38"/><circle cx="535.21" cy="629.07" r="1.46" fill="#d1a28a" opacity="0.41"/><circle cx="280.32" cy="723.66" r="2.4" fill="#d1a28a" opacity="0.12"/><circle cx="441.23" cy="691.28" r="0.96" fill="#d1a28a" opacity="0.44"/></g>
+  <rect width="900" height="900" fill="url(#p-p4-vig)"/>
+  <rect width="900" height="900" filter="url(#p-p4-grain)" opacity="0.5" style="mix-blend-mode:overlay"/>
 </svg>

@@ -6,6 +6,7 @@ import { SmoothScroll } from '@/components/system/SmoothScroll';
 import { Loader } from '@/components/system/Loader';
 import { Cursor } from '@/components/ui/Cursor';
 import { Grain } from '@/components/ui/Grain';
+import { ScrollRail } from '@/components/ui/ScrollRail';
 
 export function Providers({ children }: { children: ReactNode }) {
   return (
@@ -14,6 +15,7 @@ export function Providers({ children }: { children: ReactNode }) {
         <Loader />
         <Cursor />
         <Grain />
+        <ScrollRail />
         {children}
       </SmoothScroll>
     </ExperienceProvider>

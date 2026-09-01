@@ -1,16 +1,136 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 1400" width="1400" height="1400">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 1400" width="1400" height="1400" aria-hidden="true">
+
   <defs>
-    <filter id="f-tea" x="0" y="0" width="100%" height="100%">
-      <feTurbulence type="fractalNoise" baseFrequency="0.004" numOctaves="5" seed="1" result="t"/>
-      <feColorMatrix in="t" type="matrix" values="0 0 0 0 0.1  0 0 0 0 0.06  0 0 0 0 0.02  1 0 0 0 0"/>
-    </filter>
-    <radialGradient id="r-tea" cx="0.5" cy="0.5" r="0.62">
-      <stop offset="0" stop-color="#C9A96A" stop-opacity="0.7"/>
-      <stop offset="0.7" stop-color="#1A1207" stop-opacity="0.9"/>
-      <stop offset="1" stop-color="#070504" stop-opacity="1"/>
+    
+  <radialGradient id="f-tea-bubble" cx="38%" cy="34%" r="68%">
+    <stop offset="0%" stop-color="#dfcba6" stop-opacity="0.18"/>
+    <stop offset="62%" stop-color="#dfcba6" stop-opacity="0.05"/>
+    <stop offset="88%" stop-color="#dfcba6" stop-opacity="0.42"/>
+    <stop offset="100%" stop-color="#dfcba6" stop-opacity="0.08"/>
+  </radialGradient>
+    
+  <filter id="f-tea-bk-far" x="-35%" y="-35%" width="170%" height="170%">
+    <feGaussianBlur stdDeviation="22"/>
+  </filter>
+    
+  <filter id="f-tea-bk-mid" x="-35%" y="-35%" width="170%" height="170%">
+    <feGaussianBlur stdDeviation="7"/>
+  </filter>
+    
+  <filter id="f-tea-warp" x="-25%" y="-25%" width="150%" height="150%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.004 0.0064" numOctaves="4" seed="71" result="t"/>
+    <feDisplacementMap in="SourceGraphic" in2="t" scale="210" xChannelSelector="R" yChannelSelector="G"/>
+    <feGaussianBlur stdDeviation="4"/>
+  </filter>
+    
+  <filter id="f-tea-caustic" x="0" y="0" width="100%" height="100%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.0056" numOctaves="2" seed="75" result="n"/>
+    <feColorMatrix in="n" type="matrix"
+      values="0 0 0 0 1  0 0 0 0 0.82  0 0 0 0 0.55  1.6 0 0 0 -0.62"/>
+    <feGaussianBlur stdDeviation="2"/>
+  </filter>
+    
+  <filter id="f-tea-grain" x="0" y="0" width="100%" height="100%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" seed="79"/>
+    <feColorMatrix type="saturate" values="0"/>
+    <feComponentTransfer><feFuncA type="linear" slope="0.22"/></feComponentTransfer>
+    <feComposite operator="in" in2="SourceGraphic"/>
+  </filter>
+    
+  <radialGradient id="f-tea-vig" cx="50%" cy="46%" r="72%">
+    <stop offset="45%" stop-color="#000" stop-opacity="0"/>
+    <stop offset="100%" stop-color="#000" stop-opacity="0.85"/>
+  </radialGradient>
+    <radialGradient id="f-tea-well" cx="50%" cy="48%" r="62%">
+      <stop offset="0%" stop-color="#dfcba6" stop-opacity="0.55"/>
+      <stop offset="38%" stop-color="#C9A96A" stop-opacity="0.42"/>
+      <stop offset="78%" stop-color="#1A1207" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#070504"/>
     </radialGradient>
   </defs>
+
   <rect width="1400" height="1400" fill="#070504"/>
-  <rect width="1400" height="1400" fill="url(#r-tea)"/>
-  <rect width="1400" height="1400" filter="url(#f-tea)" opacity="0.55" style="mix-blend-mode:overlay"/>
+  <rect width="1400" height="1400" fill="url(#f-tea-well)"/>
+
+  <g filter="url(#f-tea-warp)" opacity="0.85"><circle cx="690.35" cy="708.88" r="90"
+      fill="none" stroke="#dfcba6" stroke-opacity="0.17"
+      stroke-width="7.61"/><circle cx="690.41" cy="681.96" r="116.36"
+      fill="none" stroke="#C9A96A" stroke-opacity="0.11"
+      stroke-width="3.91"/><circle cx="722.71" cy="729.91" r="137.77"
+      fill="none" stroke="#C9A96A" stroke-opacity="0.15"
+      stroke-width="7.37"/><circle cx="709.1" cy="702.79" r="170.54"
+      fill="none" stroke="#dfcba6" stroke-opacity="0.1"
+      stroke-width="6.97"/><circle cx="715.65" cy="719.04" r="198.41"
+      fill="none" stroke="#C9A96A" stroke-opacity="0.07"
+      stroke-width="1.62"/><circle cx="701.77" cy="695.69" r="216.57"
+      fill="none" stroke="#C9A96A" stroke-opacity="0.17"
+      stroke-width="7.28"/><circle cx="676.96" cy="708.05" r="252.21"
+      fill="none" stroke="#dfcba6" stroke-opacity="0.13"
+      stroke-width="3.09"/><circle cx="725.04" cy="712.31" r="261.33"
+      fill="none" stroke="#C9A96A" stroke-opacity="0.13"
+      stroke-width="8.51"/><circle cx="715.66" cy="688.53" r="300.48"
+      fill="none" stroke="#C9A96A" stroke-opacity="0.16"
+      stroke-width="3.06"/><circle cx="720.76" cy="718.85" r="300.18"
+      fill="none" stroke="#dfcba6" stroke-opacity="0.13"
+      stroke-width="8.88"/><circle cx="725.14" cy="722.92" r="343.85"
+      fill="none" stroke="#C9A96A" stroke-opacity="0.16"
+      stroke-width="5.06"/><circle cx="702.56" cy="714.02" r="403.63"
+      fill="none" stroke="#C9A96A" stroke-opacity="0.17"
+      stroke-width="3.4"/><circle cx="719.27" cy="709.4" r="376.76"
+      fill="none" stroke="#dfcba6" stroke-opacity="0.19"
+      stroke-width="1.41"/><circle cx="723.78" cy="696.52" r="384.64"
+      fill="none" stroke="#C9A96A" stroke-opacity="0.12"
+      stroke-width="2.89"/><circle cx="686.45" cy="710.37" r="459.48"
+      fill="none" stroke="#C9A96A" stroke-opacity="0.24"
+      stroke-width="5.9"/><circle cx="718.57" cy="703.36" r="535.65"
+      fill="none" stroke="#dfcba6" stroke-opacity="0.07"
+      stroke-width="6.48"/><circle cx="724.06" cy="677.6" r="540.32"
+      fill="none" stroke="#C9A96A" stroke-opacity="0.24"
+      stroke-width="6.16"/><circle cx="686.32" cy="700.26" r="558.2"
+      fill="none" stroke="#C9A96A" stroke-opacity="0.25"
+      stroke-width="1.71"/><circle cx="714.93" cy="725.32" r="565.98"
+      fill="none" stroke="#dfcba6" stroke-opacity="0.15"
+      stroke-width="8.75"/><circle cx="685.46" cy="714.84" r="519.49"
+      fill="none" stroke="#C9A96A" stroke-opacity="0.08"
+      stroke-width="4.94"/><circle cx="683.33" cy="693.52" r="555.18"
+      fill="none" stroke="#C9A96A" stroke-opacity="0.19"
+      stroke-width="8.31"/><circle cx="728.25" cy="690.81" r="650.33"
+      fill="none" stroke="#dfcba6" stroke-opacity="0.25"
+      stroke-width="4.14"/></g>
+
+  <g style="mix-blend-mode:screen" opacity="0.42">
+    <rect width="1400" height="1400" filter="url(#f-tea-caustic)"/>
+  </g>
+
+  <g filter="url(#f-tea-bk-far)"><circle cx="0.84" cy="179.77" r="54.07" fill="url(#f-tea-bubble)" opacity="0.1"/>
+        <circle cx="0.84" cy="179.77" r="54.07" fill="none" stroke="#dfcba6" stroke-opacity="0.03" stroke-width="3.24"/>
+      <circle cx="32.31" cy="1203.8" r="100.36" fill="url(#f-tea-bubble)" opacity="0.1"/>
+        <circle cx="32.31" cy="1203.8" r="100.36" fill="none" stroke="#dfcba6" stroke-opacity="0.03" stroke-width="6.02"/>
+      <circle cx="428.15" cy="1359.89" r="90.61" fill="url(#f-tea-bubble)" opacity="0.16"/>
+        <circle cx="428.15" cy="1359.89" r="90.61" fill="none" stroke="#dfcba6" stroke-opacity="0.06" stroke-width="5.44"/>
+      <circle cx="1378.06" cy="926.87" r="47.24" fill="url(#f-tea-bubble)" opacity="0.14"/>
+        <circle cx="1378.06" cy="926.87" r="47.24" fill="none" stroke="#dfcba6" stroke-opacity="0.05" stroke-width="2.83"/>
+      <circle cx="949.9" cy="829.86" r="89.92" fill="url(#f-tea-bubble)" opacity="0.08"/>
+        <circle cx="949.9" cy="829.86" r="89.92" fill="none" stroke="#dfcba6" stroke-opacity="0.03" stroke-width="5.4"/>
+      <circle cx="204.99" cy="1234.1" r="71.88" fill="url(#f-tea-bubble)" opacity="0.13"/>
+        <circle cx="204.99" cy="1234.1" r="71.88" fill="none" stroke="#dfcba6" stroke-opacity="0.05" stroke-width="4.31"/>
+      <circle cx="216.79" cy="802.92" r="43.54" fill="url(#f-tea-bubble)" opacity="0.1"/>
+        <circle cx="216.79" cy="802.92" r="43.54" fill="none" stroke="#dfcba6" stroke-opacity="0.03" stroke-width="2.61"/></g>
+    <g filter="url(#f-tea-bk-mid)"><circle cx="44.73" cy="1388.35" r="24.72" fill="url(#f-tea-bubble)" opacity="0.25"/>
+        <circle cx="44.73" cy="1388.35" r="24.72" fill="none" stroke="#dfcba6" stroke-opacity="0.15" stroke-width="1.48"/>
+      <circle cx="292.43" cy="916.67" r="58.42" fill="url(#f-tea-bubble)" opacity="0.18"/>
+        <circle cx="292.43" cy="916.67" r="58.42" fill="none" stroke="#dfcba6" stroke-opacity="0.11" stroke-width="3.51"/>
+      <circle cx="998.44" cy="341.05" r="37.15" fill="url(#f-tea-bubble)" opacity="0.16"/>
+        <circle cx="998.44" cy="341.05" r="37.15" fill="none" stroke="#dfcba6" stroke-opacity="0.1" stroke-width="2.23"/>
+      <circle cx="30.79" cy="918.92" r="56.49" fill="url(#f-tea-bubble)" opacity="0.14"/>
+        <circle cx="30.79" cy="918.92" r="56.49" fill="none" stroke="#dfcba6" stroke-opacity="0.08" stroke-width="3.39"/></g>
+    <g><circle cx="233.7" cy="835.54" r="28.49" fill="url(#f-tea-bubble)" opacity="0.26"/>
+        <circle cx="233.7" cy="835.54" r="28.49" fill="none" stroke="#dfcba6" stroke-opacity="0.26" stroke-width="1.71"/>
+      <circle cx="1398.13" cy="845.15" r="10.39" fill="url(#f-tea-bubble)" opacity="0.44"/>
+        <circle cx="1398.13" cy="845.15" r="10.39" fill="none" stroke="#dfcba6" stroke-opacity="0.44" stroke-width="0.7"/>
+      <circle cx="432.08" cy="234.96" r="29.3" fill="url(#f-tea-bubble)" opacity="0.45"/>
+        <circle cx="432.08" cy="234.96" r="29.3" fill="none" stroke="#dfcba6" stroke-opacity="0.45" stroke-width="1.76"/></g>
+
+  <rect width="1400" height="1400" fill="url(#f-tea-vig)"/>
+  <rect width="1400" height="1400" filter="url(#f-tea-grain)" opacity="0.6" style="mix-blend-mode:overlay"/>
 </svg>

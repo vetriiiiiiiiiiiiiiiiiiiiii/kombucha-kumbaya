@@ -126,6 +126,7 @@ export function Hero() {
     <section
       ref={section}
       id="top"
+      data-chapter="LET LIFE BUBBLE"
       className={reduced ? 'relative h-[100svh]' : 'relative h-[190svh] md:h-[220svh]'}
       aria-label="Kumbayah — let life bubble"
     >

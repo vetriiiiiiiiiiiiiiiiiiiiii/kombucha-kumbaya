@@ -1,16 +1,158 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 1400" width="1400" height="1400">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 1400" width="1400" height="1400" aria-hidden="true">
+
   <defs>
-    <filter id="f-culture" x="0" y="0" width="100%" height="100%">
-      <feTurbulence type="fractalNoise" baseFrequency="0.008" numOctaves="5" seed="8" result="t"/>
-      <feColorMatrix in="t" type="matrix" values="0 0 0 0 0.1  0 0 0 0 0.06  0 0 0 0 0.02  1 0 0 0 0"/>
-    </filter>
-    <radialGradient id="r-culture" cx="0.5" cy="0.5" r="0.62">
-      <stop offset="0" stop-color="#D7C08D" stop-opacity="0.7"/>
-      <stop offset="0.7" stop-color="#1E1509" stop-opacity="0.9"/>
-      <stop offset="1" stop-color="#070504" stop-opacity="1"/>
+    
+  <radialGradient id="f-culture-bubble" cx="38%" cy="34%" r="68%">
+    <stop offset="0%" stop-color="#e7d9bb" stop-opacity="0.18"/>
+    <stop offset="62%" stop-color="#e7d9bb" stop-opacity="0.05"/>
+    <stop offset="88%" stop-color="#e7d9bb" stop-opacity="0.42"/>
+    <stop offset="100%" stop-color="#e7d9bb" stop-opacity="0.08"/>
+  </radialGradient>
+    
+  <filter id="f-culture-bk-far" x="-35%" y="-35%" width="170%" height="170%">
+    <feGaussianBlur stdDeviation="22"/>
+  </filter>
+    
+  <filter id="f-culture-bk-mid" x="-35%" y="-35%" width="170%" height="170%">
+    <feGaussianBlur stdDeviation="7"/>
+  </filter>
+    
+  <filter id="f-culture-warp" x="-25%" y="-25%" width="150%" height="150%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.007 0.011200000000000002" numOctaves="4" seed="83" result="t"/>
+    <feDisplacementMap in="SourceGraphic" in2="t" scale="210" xChannelSelector="R" yChannelSelector="G"/>
+    <feGaussianBlur stdDeviation="4"/>
+  </filter>
+    
+  <filter id="f-culture-caustic" x="0" y="0" width="100%" height="100%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.0098" numOctaves="2" seed="87" result="n"/>
+    <feColorMatrix in="n" type="matrix"
+      values="0 0 0 0 1  0 0 0 0 0.82  0 0 0 0 0.55  1.6 0 0 0 -0.62"/>
+    <feGaussianBlur stdDeviation="2"/>
+  </filter>
+    
+  <filter id="f-culture-grain" x="0" y="0" width="100%" height="100%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" seed="91"/>
+    <feColorMatrix type="saturate" values="0"/>
+    <feComponentTransfer><feFuncA type="linear" slope="0.22"/></feComponentTransfer>
+    <feComposite operator="in" in2="SourceGraphic"/>
+  </filter>
+    
+  <radialGradient id="f-culture-vig" cx="50%" cy="46%" r="72%">
+    <stop offset="45%" stop-color="#000" stop-opacity="0"/>
+    <stop offset="100%" stop-color="#000" stop-opacity="0.85"/>
+  </radialGradient>
+    <radialGradient id="f-culture-well" cx="50%" cy="48%" r="62%">
+      <stop offset="0%" stop-color="#e7d9bb" stop-opacity="0.55"/>
+      <stop offset="38%" stop-color="#D7C08D" stop-opacity="0.42"/>
+      <stop offset="78%" stop-color="#1E1509" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#070504"/>
     </radialGradient>
   </defs>
+
   <rect width="1400" height="1400" fill="#070504"/>
-  <rect width="1400" height="1400" fill="url(#r-culture)"/>
-  <rect width="1400" height="1400" filter="url(#f-culture)" opacity="0.55" style="mix-blend-mode:overlay"/>
+  <rect width="1400" height="1400" fill="url(#f-culture-well)"/>
+
+  <g filter="url(#f-culture-warp)" opacity="0.85"><circle cx="725.06" cy="712.91" r="90"
+      fill="none" stroke="#e7d9bb" stroke-opacity="0.07"
+      stroke-width="2.76"/><circle cx="724.28" cy="690.75" r="113.45"
+      fill="none" stroke="#D7C08D" stroke-opacity="0.14"
+      stroke-width="5.64"/><circle cx="676.69" cy="728.21" r="147.16"
+      fill="none" stroke="#D7C08D" stroke-opacity="0.23"
+      stroke-width="4.5"/><circle cx="712.32" cy="708.34" r="178.88"
+      fill="none" stroke="#e7d9bb" stroke-opacity="0.22"
+      stroke-width="5.38"/><circle cx="670.13" cy="723.1" r="198.72"
+      fill="none" stroke="#D7C08D" stroke-opacity="0.11"
+      stroke-width="2.85"/><circle cx="707.99" cy="686.52" r="229.17"
+      fill="none" stroke="#D7C08D" stroke-opacity="0.17"
+      stroke-width="2.59"/><circle cx="685.75" cy="717.02" r="248.65"
+      fill="none" stroke="#e7d9bb" stroke-opacity="0.25"
+      stroke-width="1.76"/><circle cx="700.54" cy="716.92" r="257.99"
+      fill="none" stroke="#D7C08D" stroke-opacity="0.11"
+      stroke-width="3.58"/><circle cx="703.1" cy="728.85" r="298.26"
+      fill="none" stroke="#D7C08D" stroke-opacity="0.17"
+      stroke-width="1.61"/><circle cx="695.54" cy="695.84" r="291.21"
+      fill="none" stroke="#e7d9bb" stroke-opacity="0.19"
+      stroke-width="2.78"/><circle cx="709.1" cy="714.12" r="359.29"
+      fill="none" stroke="#D7C08D" stroke-opacity="0.22"
+      stroke-width="7.55"/><circle cx="692.86" cy="700.33" r="403.46"
+      fill="none" stroke="#D7C08D" stroke-opacity="0.15"
+      stroke-width="1.21"/><circle cx="722.52" cy="721.13" r="363.27"
+      fill="none" stroke="#e7d9bb" stroke-opacity="0.16"
+      stroke-width="8.13"/><circle cx="675.4" cy="701.85" r="377.31"
+      fill="none" stroke="#D7C08D" stroke-opacity="0.19"
+      stroke-width="1.97"/><circle cx="723.03" cy="729.87" r="460.41"
+      fill="none" stroke="#D7C08D" stroke-opacity="0.23"
+      stroke-width="8.75"/><circle cx="676.08" cy="679.42" r="485.73"
+      fill="none" stroke="#e7d9bb" stroke-opacity="0.1"
+      stroke-width="8.42"/><circle cx="694.32" cy="689.02" r="532.06"
+      fill="none" stroke="#D7C08D" stroke-opacity="0.09"
+      stroke-width="1.52"/><circle cx="676.4" cy="682.55" r="499.13"
+      fill="none" stroke="#D7C08D" stroke-opacity="0.25"
+      stroke-width="7.01"/><circle cx="695.48" cy="678.06" r="537.67"
+      fill="none" stroke="#e7d9bb" stroke-opacity="0.18"
+      stroke-width="1.5"/><circle cx="682.16" cy="720.72" r="541.98"
+      fill="none" stroke="#D7C08D" stroke-opacity="0.13"
+      stroke-width="4.82"/><circle cx="720.23" cy="720.32" r="625.01"
+      fill="none" stroke="#D7C08D" stroke-opacity="0.22"
+      stroke-width="7.07"/><circle cx="705.98" cy="714.61" r="627.38"
+      fill="none" stroke="#e7d9bb" stroke-opacity="0.13"
+      stroke-width="3.99"/></g>
+
+  <g style="mix-blend-mode:screen" opacity="0.42">
+    <rect width="1400" height="1400" filter="url(#f-culture-caustic)"/>
+  </g>
+
+  <g filter="url(#f-culture-bk-far)"><circle cx="0.98" cy="989.61" r="61.13" fill="url(#f-culture-bubble)" opacity="0.14"/>
+        <circle cx="0.98" cy="989.61" r="61.13" fill="none" stroke="#e7d9bb" stroke-opacity="0.05" stroke-width="3.67"/>
+      <circle cx="582.8" cy="682.31" r="54.63" fill="url(#f-culture-bubble)" opacity="0.11"/>
+        <circle cx="582.8" cy="682.31" r="54.63" fill="none" stroke="#e7d9bb" stroke-opacity="0.04" stroke-width="3.28"/>
+      <circle cx="640.33" cy="262.73" r="48.83" fill="url(#f-culture-bubble)" opacity="0.09"/>
+        <circle cx="640.33" cy="262.73" r="48.83" fill="none" stroke="#e7d9bb" stroke-opacity="0.03" stroke-width="2.93"/>
+      <circle cx="1338.28" cy="107.68" r="114.6" fill="url(#f-culture-bubble)" opacity="0.08"/>
+        <circle cx="1338.28" cy="107.68" r="114.6" fill="none" stroke="#e7d9bb" stroke-opacity="0.03" stroke-width="6.88"/>
+      <circle cx="1025.21" cy="959.19" r="48.02" fill="url(#f-culture-bubble)" opacity="0.16"/>
+        <circle cx="1025.21" cy="959.19" r="48.02" fill="none" stroke="#e7d9bb" stroke-opacity="0.06" stroke-width="2.88"/>
+      <circle cx="218.75" cy="171.88" r="78.99" fill="url(#f-culture-bubble)" opacity="0.14"/>
+        <circle cx="218.75" cy="171.88" r="78.99" fill="none" stroke="#e7d9bb" stroke-opacity="0.05" stroke-width="4.74"/>
+      <circle cx="432.39" cy="1255.33" r="54.41" fill="url(#f-culture-bubble)" opacity="0.09"/>
+        <circle cx="432.39" cy="1255.33" r="54.41" fill="none" stroke="#e7d9bb" stroke-opacity="0.03" stroke-width="3.26"/>
+      <circle cx="33.52" cy="568.35" r="36.95" fill="url(#f-culture-bubble)" opacity="0.15"/>
+        <circle cx="33.52" cy="568.35" r="36.95" fill="none" stroke="#e7d9bb" stroke-opacity="0.05" stroke-width="2.22"/>
+      <circle cx="501.64" cy="314.08" r="88.69" fill="url(#f-culture-bubble)" opacity="0.09"/>
+        <circle cx="501.64" cy="314.08" r="88.69" fill="none" stroke="#e7d9bb" stroke-opacity="0.03" stroke-width="5.32"/>
+      <circle cx="426.77" cy="448.75" r="56.24" fill="url(#f-culture-bubble)" opacity="0.12"/>
+        <circle cx="426.77" cy="448.75" r="56.24" fill="none" stroke="#e7d9bb" stroke-opacity="0.04" stroke-width="3.37"/>
+      <circle cx="1381.05" cy="625.77" r="68.26" fill="url(#f-culture-bubble)" opacity="0.08"/>
+        <circle cx="1381.05" cy="625.77" r="68.26" fill="none" stroke="#e7d9bb" stroke-opacity="0.03" stroke-width="4.1"/>
+      <circle cx="1379.21" cy="656.66" r="57.63" fill="url(#f-culture-bubble)" opacity="0.14"/>
+        <circle cx="1379.21" cy="656.66" r="57.63" fill="none" stroke="#e7d9bb" stroke-opacity="0.05" stroke-width="3.46"/>
+      <circle cx="379.66" cy="1176.86" r="57.89" fill="url(#f-culture-bubble)" opacity="0.12"/>
+        <circle cx="379.66" cy="1176.86" r="57.89" fill="none" stroke="#e7d9bb" stroke-opacity="0.04" stroke-width="3.47"/></g>
+    <g filter="url(#f-culture-bk-mid)"><circle cx="226.69" cy="653.39" r="75.53" fill="url(#f-culture-bubble)" opacity="0.27"/>
+        <circle cx="226.69" cy="653.39" r="75.53" fill="none" stroke="#e7d9bb" stroke-opacity="0.16" stroke-width="4.53"/>
+      <circle cx="420.07" cy="1247.97" r="72.35" fill="url(#f-culture-bubble)" opacity="0.2"/>
+        <circle cx="420.07" cy="1247.97" r="72.35" fill="none" stroke="#e7d9bb" stroke-opacity="0.12" stroke-width="4.34"/>
+      <circle cx="719.78" cy="1263.55" r="74.11" fill="url(#f-culture-bubble)" opacity="0.2"/>
+        <circle cx="719.78" cy="1263.55" r="74.11" fill="none" stroke="#e7d9bb" stroke-opacity="0.12" stroke-width="4.45"/>
+      <circle cx="1135.61" cy="1349.49" r="58.92" fill="url(#f-culture-bubble)" opacity="0.15"/>
+        <circle cx="1135.61" cy="1349.49" r="58.92" fill="none" stroke="#e7d9bb" stroke-opacity="0.09" stroke-width="3.54"/>
+      <circle cx="491.43" cy="789.13" r="51.76" fill="url(#f-culture-bubble)" opacity="0.17"/>
+        <circle cx="491.43" cy="789.13" r="51.76" fill="none" stroke="#e7d9bb" stroke-opacity="0.1" stroke-width="3.11"/>
+      <circle cx="924.39" cy="461.65" r="27.77" fill="url(#f-culture-bubble)" opacity="0.19"/>
+        <circle cx="924.39" cy="461.65" r="27.77" fill="none" stroke="#e7d9bb" stroke-opacity="0.11" stroke-width="1.67"/>
+      <circle cx="1046.1" cy="640.46" r="63.99" fill="url(#f-culture-bubble)" opacity="0.23"/>
+        <circle cx="1046.1" cy="640.46" r="63.99" fill="none" stroke="#e7d9bb" stroke-opacity="0.14" stroke-width="3.84"/></g>
+    <g><circle cx="946.04" cy="220.53" r="21.92" fill="url(#f-culture-bubble)" opacity="0.3"/>
+        <circle cx="946.04" cy="220.53" r="21.92" fill="none" stroke="#e7d9bb" stroke-opacity="0.3" stroke-width="1.32"/>
+      <circle cx="383.59" cy="41.11" r="25.21" fill="url(#f-culture-bubble)" opacity="0.38"/>
+        <circle cx="383.59" cy="41.11" r="25.21" fill="none" stroke="#e7d9bb" stroke-opacity="0.38" stroke-width="1.51"/>
+      <circle cx="1332.45" cy="116.1" r="31.98" fill="url(#f-culture-bubble)" opacity="0.3"/>
+        <circle cx="1332.45" cy="116.1" r="31.98" fill="none" stroke="#e7d9bb" stroke-opacity="0.3" stroke-width="1.92"/>
+      <circle cx="336.5" cy="953.9" r="27.71" fill="url(#f-culture-bubble)" opacity="0.31"/>
+        <circle cx="336.5" cy="953.9" r="27.71" fill="none" stroke="#e7d9bb" stroke-opacity="0.31" stroke-width="1.66"/>
+      <circle cx="945.26" cy="1252.23" r="38.3" fill="url(#f-culture-bubble)" opacity="0.49"/>
+        <circle cx="945.26" cy="1252.23" r="38.3" fill="none" stroke="#e7d9bb" stroke-opacity="0.49" stroke-width="2.3"/></g>
+
+  <rect width="1400" height="1400" fill="url(#f-culture-vig)"/>
+  <rect width="1400" height="1400" filter="url(#f-culture-grain)" opacity="0.6" style="mix-blend-mode:overlay"/>
 </svg>

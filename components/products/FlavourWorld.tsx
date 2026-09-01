@@ -85,7 +85,8 @@ export function FlavourWorld() {
   }, [reduced]);
 
   return (
-    <section ref={section} id="booch" className="relative bg-void py-[14svh]" aria-label="Find your booch">
+    <section ref={section} id="booch"
+      data-chapter="THE RANGE" className="relative bg-void py-[14svh]" aria-label="Find your booch">
       <div className="gutter">
         <SectionMeta
           index="03"
